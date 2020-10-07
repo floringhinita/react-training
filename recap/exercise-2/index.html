@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chain Functions</title>
+    <script src="chain.js"></script>
+    <script>
+        const sum = (a, b) => a + b;
+        const subtract = (a, b) => a - b;
+        const double = (a, b = 1) => a * 2 * b;
+        const divide = (a, b) => a / b;
+
+        const x = chain({ sum, double, divide, subtract });
+
+        console.log(x.sum(1, 2).double(2).execute());
+        console.log(x.sum(1, 2).subtract(2).double().double(4).execute());
+    </script>
+</head>
+<body>
+<h1>Check console</h1>
+</body>
+</html>
