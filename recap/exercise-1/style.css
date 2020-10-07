@@ -1,0 +1,22 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+}
+
+div.container {
+    width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+.laps-container {
+    width: 200px;
+    margin: 20px auto;
+}
+
+ul.laps-list li {
+    width: 100px;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./main.js"></script>
+    <script>window.onload = function() {
+        StopWatch();
+    };</script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">StopWatch</h1>
+        <div class="timer-container">
+            <span id="hour"></span>:<span id="min"></span>:<span id="sec"></span>
+        </div>
+        <div class="laps-container">
+            <ul id="laps-list"></ul>
+        </div>
+        <div class="controls">
+            <button id="btn-reset">Reset</button>
+            <button id="btn-stop">Stop</button>
+            <button id="btn-start">Start</button>
+            <button id="btn-lap">Lap</button>
+        </div>
+    </div>
+</body>
+</html>
