@@ -12,9 +12,15 @@ div.container {
     margin: 20px auto;
     text-align: center;
 }
+h1.title {
+    font-weight: bold;
+}
 .laps-container {
     width: 200px;
     margin: 20px auto;
+}
+.timer-container {
+    font-size: 1.3em;
 }
 
 ul.laps-list li {

@@ -6,9 +6,10 @@ const StopWatch = function() {
     const $sec = document.getElementById('sec');
     const $msec = document.getElementById('msec');
 
-    $min.innerHTML = min;
-    $sec.innerHTML = sec;
-    $msec.innerHTML = msec;
+
+    setValue($min, min);
+    setValue($sec, sec);
+    setValue($msec, msec);
 
     const $laps = document.getElementById('laps-list');
 
@@ -22,26 +23,29 @@ const StopWatch = function() {
     $btnStart.onclick = function() {
         clearInterval(interval);
         interval = setInterval(startStopwatch, 10);
+        $btnStart.setAttribute('disabled', 'disabled');
     };
 
     $btnStop.onclick = function() {
         clearInterval(interval);
+        $btnStart.removeAttribute('disabled');
     };
 
     $btnReset.onclick = function() {
         clearInterval(interval);
+        $btnStart.removeAttribute('disabled');
         min = sec = msec = laps = 0;
 
-        $min.innerHTML = min.toString();
-        $sec.innerHTML = sec.toString();
-        $msec.innerHTML = msec.toString();
+        setValue($min, min);
+        setValue($sec, sec);
+        setValue($msec, msec);
         $laps.innerHTML = '';
     };
 
     $btnLap.onclick = function() {
         const $lap_item = document.createElement('li');
         laps++;
-        $lap_item.innerHTML = `Lap ${laps}: ${min}:${sec}:${msec}`;
+        $lap_item.innerHTML = `Lap ${laps}: ${min.toStringLeadZero()}:${sec.toStringLeadZero()}:${msec.toStringLeadZero()}`;
 
         $laps.firstChild
             ? $laps.prepend($lap_item, $laps.firstChild)
@@ -50,18 +54,26 @@ const StopWatch = function() {
 
     const startStopwatch = function() {
         msec++;
-        $msec.innerHTML = msec;
+        setValue($msec, msec);
 
         if (msec === 60) {
             sec++;
             msec = 0;
-            $sec.innerHTML = sec;
+            setValue($sec, sec);
         }
 
         if (sec === 60) {
             min++;
             sec = 0;
-            $min.innerHTML = min;
+            setValue($min, min);
         }
     }
+};
+
+const setValue = function(element, value) {
+    element.innerHTML = value.toStringLeadZero();
+};
+
+Number.prototype.toStringLeadZero = function() {
+    return this.valueOf() < 10 ? "0" + this.valueOf() : this.valueOf().toString();
 };
