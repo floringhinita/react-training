@@ -19,9 +19,9 @@ const InputControl = (props) => {
 
     return (
         <div>
-            <input type='text' value={title} onChange={handleInputChange} placeholder={"Please insert course name"}/>
-            <button onClick={handleAdd}>Add course</button>
-            <button onClick={handleReset}>Reset</button>
+            <input type='text' data-testid="input-course" value={title} onChange={handleInputChange} placeholder={"Please insert course name"}/>
+            <button onClick={handleAdd} data-testid="btn-add-course">Add course</button>
+            <button onClick={handleReset} data-testid="btn-reset-course">Reset</button>
         </div>
     )
 };
