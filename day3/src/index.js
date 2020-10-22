@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {App4} from "./apps";
 import * as serviceWorker from './serviceWorker';
+import {Countries} from "./components/Countries";
 
 ReactDOM.render(
-    <App4 />,
+    <Countries />,
   document.getElementById('root')
 );
 
