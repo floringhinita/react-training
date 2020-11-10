@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import CountryCard from './CountryCard'
+import { CountryCard } from './CountryCard'
 import styles from './Countries.module.css'
 import axios from "axios";
 
@@ -38,7 +38,7 @@ const Countries = () => {
             setData(results.data)
         }
         catch (e) {
-            setError(e.response.data.message)
+            setError(e.message)
             setData([])
         }
         setIsLoading(false)
@@ -57,7 +57,7 @@ const Countries = () => {
             return <div className={styles.loader}/>
         }
 
-        if (error.length) {
+        if (error) {
             return <div>{error}</div>
         }
 
@@ -66,7 +66,7 @@ const Countries = () => {
 
     return (<div className={styles.wrapper}>
         <div className={styles.filters}>
-            <input type="text" value={query} onChange={handleOnChangeQuery} placeholder="Search for a country..."/>
+            <input type="text" value={query} onChange={handleOnChangeQuery} placeholder="Search for a country..." data-testid="query-test-id"/>
             <select name="region" value={region} onChange={handleOnChangeRegion} className={styles.selectFilter} placeholder="Filter by region">
                 <option value="">Filter by region</option>
                 <option value="africa">Africa</option>

@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {Countries} from "./components/Countries";
+import App from "./apps/LeadsBuilder/App";
 
 ReactDOM.render(
-    <Countries />,
+    <App />,
   document.getElementById('root')
 );
 
